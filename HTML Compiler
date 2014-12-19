@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 4.0.5.2 (Linux)">
+	<META NAME="AUTHOR" CONTENT="ismail - [2010]">
+	<META NAME="CREATED" CONTENT="20141219;10180000">
+	<META NAME="CHANGEDBY" CONTENT="ismail - [2010]">
+	<META NAME="CHANGED" CONTENT="20141219;10490000">
+	<META NAME="AppVersion" CONTENT="14.0000">
+	<META NAME="Company" CONTENT="home">
+	<META NAME="DocSecurity" CONTENT="0">
+	<META NAME="HyperlinksChanged" CONTENT="false">
+	<META NAME="LinksUpToDate" CONTENT="false">
+	<META NAME="ScaleCrop" CONTENT="false">
+	<META NAME="ShareDoc" CONTENT="false">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in; margin: 1in }
+		P { margin-bottom: 0.08in; direction: ltr; widows: 2; orphans: 2 }
+		H1 { margin-top: 0.33in; margin-bottom: 0in; direction: ltr; color: #365f91; page-break-inside: avoid; widows: 2; orphans: 2 }
+		H1.western { font-family: "Cambria", serif; font-size: 14pt }
+		H1.cjk { font-size: 14pt }
+		H1.ctl { font-family: ; font-size: 14pt }
+		H2 { margin-top: 0.14in; margin-bottom: 0in; direction: ltr; color: #4f81bd; page-break-inside: avoid; widows: 2; orphans: 2 }
+		H2.western { font-family: "Cambria", serif; font-size: 13pt }
+		H2.cjk { font-family: "Arial"; font-size: 13pt }
+		H2.ctl { font-family: ; font-size: 13pt }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<H1 CLASS="western"><A NAME="_GoBack"></A>Training Data Analysis</H1>
+<P STYLE="margin-bottom: 0.14in"><BR><BR>
+</P>
+<H2 CLASS="western">Introduction 
+</H2>
+<P STYLE="margin-bottom: 0.14in">The Purpose of this report is to
+represent the prediction data analysis using (R) and techniques of
+machine learning to give a near optimum solution</P>
+<P STYLE="margin-bottom: 0.14in"><BR><BR>
+</P>
+<H2 CLASS="western">Problem Definition</H2>
+<P STYLE="margin-bottom: 0.14in">Using devices such as Jawbone Up,
+Nike FuelBand, and Fitbit it is now possible to collect a large
+amount of data about personal activity relatively inexpensively.
+These type of devices are part of the quantified self-movement – a
+group of enthusiasts who take measurements about themselves regularly
+to improve their health, to find patterns in their behavior. 
+(Ergonomically Design )</P>
+<P STYLE="margin-bottom: 0.14in">So the amount of data been collected
+is massive so simple statistical data techniques would be sufficient</P>
+<P STYLE="margin-bottom: 0.14in"><BR><BR>
+</P>
+<H2 CLASS="western">Using Caret Model</H2>
+<P STYLE="margin-bottom: 0.14in">  The caret package (short for
+Classification And REgression Training) is a set of functions that
+attempt to streamline the process for creating predictive models. The
+package contains tools for:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0.14in">data splitting</P>
+	<LI><P STYLE="margin-bottom: 0.14in">pre-processing</P>
+	<LI><P STYLE="margin-bottom: 0.14in">feature selection</P>
+	<LI><P STYLE="margin-bottom: 0.14in">model tuning using resampling</P>
+	<LI><P STYLE="margin-bottom: 0.14in">variable importance estimation</P>
+</UL>
+<P STYLE="margin-bottom: 0.14in">as well as other functionality.</P>
+<P STYLE="margin-bottom: 0.14in">There are many different modeling
+functions in R. Some have different syntax for model training and/or
+prediction. The package started off as a way to provide a uniform
+interface the functions themselves, as well as a way to standardize
+common tasks (such parameter tuning and variable importance).</P>
+<H2 CLASS="western"><IMG SRC="i_7ba5e24ac02b7949_html_m34fc8a12.png" NAME="Picture 1" ALIGN=BOTTOM WIDTH=420 HEIGHT=114 BORDER=0>
+  
+</H2>
+<P STYLE="margin-bottom: 0.14in"><BR><BR>
+</P>
+<H2 CLASS="western">Formal Model</H2>
+<P STYLE="margin-bottom: 0.14in">There are many somewhat arbitrary
+choices of learning model. The one we use can (at best) be motivated
+by its simplicity. Other models such as the online learning model
+(Kivinen and Warmuth, 1997), PAC learning (Valiant, 1984), and the
+uniform convergence model (Vapnik and Chervonenkis, 1971) differ in
+formulation, generality, and in the scope of addressable questions.</P>
+<P STYLE="margin-bottom: 0.14in"> The strongest motivation for
+studying the prediction theory model here is simplicity and
+corresponding</P>
+<P STYLE="margin-bottom: 0.14in">generality of results. The appendix
+discusses the connections between various models.</P>
+<H2 CLASS="western">Basic Quantities</H2>
+<P STYLE="margin-bottom: 0.14in">We are concerned with a learning
+model in which examples of (input, output) pairs come independently
+from some unknown distribution (similar to Training Data Set) 
+</P>
+<P STYLE="margin-bottom: 0.14in">The goal is to find a function
+capable of predicting the output given the input. There are several
+mathematical objects we work with.</P>
+<P STYLE="margin-bottom: 0.14in"><IMG SRC="i_7ba5e24ac02b7949_html_m572ba106.png" NAME="Picture 2" ALIGN=BOTTOM WIDTH=533 HEIGHT=223 BORDER=0></P>
+<H2 CLASS="western">Derived Quantities</H2>
+<P STYLE="margin-bottom: 0.14in">There are several derived quantities
+which the results are stated in terms of.</P>
+<P STYLE="margin-bottom: 0.14in">True Error) The true error c D of a
+classifier c is defined as the probability that the classifier errs:</P>
+<P STYLE="margin-bottom: 0.14in">c D ≡ Pr (x,y)<FONT FACE="Cambria Math, serif">∼</FONT>D
+(c(x) 6= y)</P>
+<P STYLE="margin-bottom: 0.14in">under draws from the distribution D.</P>
+<P STYLE="margin-bottom: 0.14in">The true error is sometimes called
+the “generalization error”. Unfortunately, the true error is not
+an</P>
+<P STYLE="margin-bottom: 0.14in">observable quantity in our model
+because the distribution D is unknown. However, there is a related</P>
+<P STYLE="margin-bottom: 0.14in">quantity which is observable</P>
+<P STYLE="margin-bottom: 0.14in"><BR><BR>
+</P>
+<H2 CLASS="western">Addressable Questions</H2>
+<P STYLE="margin-bottom: 0.14in">Given the true error c D of a
+classifier c we can precisely describe the distribution of success
+and failure on future examples drawn according to D. This quantity is
+derived from the unknown distribution D, so our effort is directed
+toward upper and lower bounding the value of c D for a classifier c.</P>
+<P STYLE="margin-bottom: 0.14in">The variations in all of the bounds
+that we present are related to the method of choosing a classifier c.
+We cover two types of bounds:</P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0.14in">Test: Use examples in a test
+	set which were not used in picking c.</P>
+	<LI><P STYLE="margin-bottom: 0.14in">Train: Use examples for both
+	choosing c and evaluating c</P>
+</OL>
+<P STYLE="margin-bottom: 0.14in"><IMG SRC="i_7ba5e24ac02b7949_html_m6d2e17c6.png" NAME="Picture 3" ALIGN=BOTTOM WIDTH=624 HEIGHT=408 BORDER=0></P>
+<H2 CLASS="western">The Bound 
+</H2>
+<P STYLE="margin-bottom: 0.14in">Before stating the bound, we note a
+few basic observations which make the results less surprising.</P>
+<P STYLE="margin-bottom: 0.14in">The principal observable quantity is
+the empirical error ˆ c S of a classifier. What is the distribution
+of the empirical error for a fixed classifier? For each example, our
+independence assumption implies the probability that the classifier
+makes an error is given by the true error, c D .  This can be modeled
+by a biased coin flip: heads if you are right and tails if you are
+wrong. What is the probability of observing k errors (heads) out of m
+examples (coin flips)? This is a very familiar distribution in
+statistics called the binomial and so it should not be surprising
+that the bounds presented here are fundamentally dependent upon the
+cumulative distribution of a binomial.</P>
+<P STYLE="margin-bottom: 0.14in"><IMG SRC="i_7ba5e24ac02b7949_html_6049460.png" NAME="Picture 4" ALIGN=BOTTOM WIDTH=624 HEIGHT=382 BORDER=0></P>
+</BODY>
+</HTML>
